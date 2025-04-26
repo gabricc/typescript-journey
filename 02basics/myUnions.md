@@ -14,6 +14,8 @@ Key concepts:
 - Variable can hold any of the specified types
 - Type checking ensures only allowed types are assigned
 
+Here, we're telling TypeScript that `score` can be either a number or a string. This is useful when a value could legitimately be of different types, like an ID that could be either numeric or string-based.
+
 ## 2. Union Types with Custom Types
 ```typescript
 type User4 = {
@@ -34,6 +36,8 @@ This demonstrates:
 - Ability to switch between different object structures
 - Type checking for object properties
 
+In this example, we're creating a variable that can hold either a User4 or an Admin type. TypeScript will ensure that the object assigned matches at least one of these types completely. This is particularly useful when dealing with different but related types of data.
+
 ## 3. Function Parameters with Union Types
 ```typescript
 function getDbId(id: number | string){
@@ -43,6 +47,8 @@ function getDbId(id: number | string){
 getDbId(3)      // Valid
 getDbId("3")    // Also valid
 ```
+
+Here, we're creating a flexible function that can accept either a number or string as an ID. This is a common pattern when working with databases where IDs might be of different types.
 
 ## 4. Type Narrowing with Union Types
 ```typescript
@@ -58,6 +64,8 @@ Important concepts:
 - TypeScript's control flow analysis
 - Safe access to type-specific methods
 
+This example shows how TypeScript uses control flow analysis to understand when it's safe to use type-specific methods. Inside the if block, TypeScript knows that `id` must be a string, so string methods are available.
+
 ## 5. Union Types in Arrays
 ```typescript
 const data1: number[] = [1, 2, 3]                    // Only numbers
@@ -69,6 +77,8 @@ Shows:
 - Arrays that can contain multiple types
 - Proper syntax for union types in arrays
 
+Notice how `data3` can contain both numbers and strings in any order. This is different from `data1` and `data2` which can only contain one type. The parentheses in `(number | string)[]` are important - they tell TypeScript that each element can be either type.
+
 ## 6. Literal Types with Unions
 ```typescript
 let seatAllotment: "aisle" | "window" | "middle"
@@ -79,6 +89,8 @@ Demonstrates:
 - Union of literal values
 - Strict type checking for specific values
 - Error prevention for invalid values
+
+In this case, we're using union types with literal values to create a type that can only be one of these three specific strings. This is great for when you have a fixed set of allowed values, like an enum.
 
 ## Best Practices
 
@@ -94,6 +106,8 @@ function processValue(value: string | number) {
     }
 }
 ```
+
+This pattern shows how to safely work with union types by checking the type before performing type-specific operations.
 
 2. **Discriminated Unions**
 ```typescript
@@ -119,6 +133,8 @@ function getArea(shape: Shape) {
 }
 ```
 
+Here we're using a 'discriminator' property (`kind`) to help TypeScript determine which type we're working with. This is a powerful pattern for handling different but related types.
+
 ## Common Use Cases
 
 1. **Optional Parameters**
@@ -132,6 +148,8 @@ function printId(id: number | undefined) {
 }
 ```
 
+This pattern is used when a value might not be available, making it optional but type-safe.
+
 2. **API Responses**
 ```typescript
 type ApiResponse = {
@@ -139,6 +157,8 @@ type ApiResponse = {
     error?: string;
 }
 ```
+
+A common pattern in API responses where data might be null and errors are optional.
 
 3. **Configuration Objects**
 ```typescript
@@ -148,6 +168,8 @@ type Config = {
     database: string | { host: string, port: number };
 }
 ```
+
+Shows how union types can make configuration objects more flexible while maintaining type safety.
 
 ## Gotchas and Tips
 
@@ -161,12 +183,16 @@ type Config = {
 let arr = [1, "string", true];  // Type: (number | string | boolean)[]
 ```
 
+TypeScript automatically infers the union type based on the array contents.
+
 3. **Null Safety**
 ```typescript
 function process(value: string | null) {
     return value?.toLowerCase() ?? "default";
 }
 ```
+
+Shows how to safely handle potentially null values using the optional chaining and nullish coalescing operators.
 
 ## Advanced Patterns
 
@@ -176,6 +202,8 @@ function isString(value: unknown): value is string {
     return typeof value === "string";
 }
 ```
+
+Type predicates allow you to create custom type guards that TypeScript can understand and use for type narrowing.
 
 2. **Exhaustiveness Checking**
 ```typescript
@@ -195,3 +223,5 @@ function processStatus(status: Status) {
     }
 }
 ```
+
+This pattern ensures that all possible values in a union type are handled, making your code more maintainable and error-resistant.

@@ -26,6 +26,7 @@ This folder covers more advanced TypeScript concepts and data structures.
 - `myArray.ts`: Examples of array declarations and manipulations
 - `myObjects.ts`: Object-oriented programming concepts in TypeScript
 - `myfunctions.ts`: Function declarations and type systems
+- `myUnions.md`: Union types in TypeScript
 
 ## Key Concepts
 - Strong typing for arrays and collections
