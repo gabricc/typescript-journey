@@ -7,7 +7,10 @@ This project demonstrates a basic TypeScript project setup with a development se
 ```
 03tsStructure/
 ├── src/
-│   └── index.ts        # Main TypeScript source file
+│   ├── index.ts        # Main TypeScript source file
+│   ├── myGenerics.ts   # Demonstrates TypeScript generics
+│   ├── abstractClass.ts # Shows abstract class implementation
+│   └── second.ts       # Additional TypeScript examples
 ├── dist/               # Compiled JavaScript output
 │   └── index.js        # Compiled version of index.ts
 ├── index.html          # HTML file that loads the compiled JS
@@ -17,7 +20,24 @@ This project demonstrates a basic TypeScript project setup with a development se
 
 ## Key Files Explained
 
-### 1. `package.json`
+### 1. Source Files
+
+#### `myGenerics.ts`
+- Demonstrates TypeScript generics implementation
+- Includes generic functions with type parameters
+- Shows different approaches to type safety:
+  - Basic type union functions
+  - Generic functions with type parameters
+  - Generic arrow functions
+  - Interface usage with generics
+
+#### `abstractClass.ts`
+- Implements abstract class concepts
+- Shows inheritance with the `TakePhoto` abstract class
+- Demonstrates abstract method implementation in `Instagram` class
+- Includes constructor parameter inheritance
+
+### 2. `package.json`
 ```json
 {
   "name": "03purets",
@@ -34,7 +54,7 @@ This project demonstrates a basic TypeScript project setup with a development se
 - Contains npm scripts for running the project
 - Uses `lite-server` for development server with auto-reload
 
-### 2. `tsconfig.json`
+### 3. `tsconfig.json`
 ```json
 {
   "compilerOptions": {
@@ -52,7 +72,7 @@ This project demonstrates a basic TypeScript project setup with a development se
 - Enables strict type checking for better code quality
 - Configures module system and target JavaScript version
 
-### 3. `index.html`
+### 4. `index.html`
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -75,12 +95,12 @@ This project demonstrates a basic TypeScript project setup with a development se
 - Links to the compiled JavaScript file
 - Includes some basic styling
 
-### 4. Source Directory (`src/`)
+### 5. Source Directory (`src/`)
 - Contains TypeScript source files
 - `index.ts` is the main entry point
 - TypeScript files will be compiled to JavaScript in the `dist/` directory
 
-### 5. Distribution Directory (`dist/`)
+### 6. Distribution Directory (`dist/`)
 - Contains compiled JavaScript files
 - Created automatically by TypeScript compiler
 - Referenced by `index.html` for running the application
