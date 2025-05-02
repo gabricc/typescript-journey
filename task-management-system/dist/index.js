@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const TaskManager_1 = require("./models/TaskManager");
+const TaskPriority_1 = require("./enums/TaskPriority");
+const TaskStatus_1 = require("./enums/TaskStatus");
+const taskmanager1 = new TaskManager_1.TaskManager();
+taskmanager1.createTask("Task 1", TaskPriority_1.TaskPriority.LOW, "John Doe");
+console.log(taskmanager1.toString());
+taskmanager1.updateTaskStatus("TASK-1", TaskStatus_1.TaskStatus.IN_PROGRESS);
+console.log(taskmanager1.toString());
+taskmanager1.updateTaskPriority("TASK-1", TaskPriority_1.TaskPriority.HIGH);
+console.log(taskmanager1.toString());
+taskmanager1.assignTask("TASK-1", "Jane Doe");
+console.log(taskmanager1.toString());
