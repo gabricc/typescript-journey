@@ -11,6 +11,9 @@ This project demonstrates a basic TypeScript project setup with a development se
 │   ├── myGenerics.ts   # Demonstrates TypeScript generics
 │   ├── abstractClass.ts # Shows abstract class implementation
 │   └── second.ts       # Additional TypeScript examples
+├── docs/               # Documentation directory
+│   ├── classes.md      # Documentation about TypeScript classes
+│   └── type-narrowing.md # Documentation about type narrowing
 ├── dist/               # Compiled JavaScript output
 │   └── index.js        # Compiled version of index.ts
 ├── index.html          # HTML file that loads the compiled JS
@@ -37,7 +40,25 @@ This project demonstrates a basic TypeScript project setup with a development se
 - Demonstrates abstract method implementation in `Instagram` class
 - Includes constructor parameter inheritance
 
-### 2. `package.json`
+### 2. Documentation Files
+
+#### `docs/classes.md`
+- Explains TypeScript classes and object-oriented concepts
+- Covers class instantiation and the `new` keyword
+- Details constructors and instance creation
+- Best practices for class implementation
+
+#### `docs/type-narrowing.md`
+- Explains TypeScript type narrowing techniques
+- Covers various type guards:
+  - typeof guards
+  - instanceof checks
+  - in operator
+  - type predicates
+  - discriminated unions
+- Best practices for type safety
+
+### 3. `package.json`
 ```json
 {
   "name": "03purets",
@@ -54,7 +75,7 @@ This project demonstrates a basic TypeScript project setup with a development se
 - Contains npm scripts for running the project
 - Uses `lite-server` for development server with auto-reload
 
-### 3. `tsconfig.json`
+### 4. `tsconfig.json`
 ```json
 {
   "compilerOptions": {
@@ -72,7 +93,7 @@ This project demonstrates a basic TypeScript project setup with a development se
 - Enables strict type checking for better code quality
 - Configures module system and target JavaScript version
 
-### 4. `index.html`
+### 5. `index.html`
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -95,12 +116,12 @@ This project demonstrates a basic TypeScript project setup with a development se
 - Links to the compiled JavaScript file
 - Includes some basic styling
 
-### 5. Source Directory (`src/`)
+### 6. Source Directory (`src/`)
 - Contains TypeScript source files
 - `index.ts` is the main entry point
 - TypeScript files will be compiled to JavaScript in the `dist/` directory
 
-### 6. Distribution Directory (`dist/`)
+### 7. Distribution Directory (`dist/`)
 - Contains compiled JavaScript files
 - Created automatically by TypeScript compiler
 - Referenced by `index.html` for running the application
